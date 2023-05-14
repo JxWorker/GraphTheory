@@ -8,10 +8,10 @@ namespace GraphTheory.src.api
 {
     internal interface IGraphTheoryService
     {
-        public int DistanceOfRoutes(Route[] graph, string[] route);
+        public string DistanceOfRoutes(Route[] graph, string[] route);
 
-        public int NumberOfRoutes(Route[] graph, string start, string end);
+        public string NumberOfRoutes(Route[] graph, string start, string end);
 
-        public int ShortesRoute(Route[] graph, string start, string end);
+        public string ShortesRoute(Route[] graph, string start, string end);
     }
 }
