@@ -15,7 +15,7 @@ namespace GraphTheory.src.component.algorithms
         /// <param name="graph">All the routes which create a graph.</param>
         /// <param name="route">A given route.</param>
         /// <returns>The distance of a route or that this route does not exist.</returns>
-        public int DistanceOfRoute(Route[] graph, string[] route)
+        public int CalculateDistance(Route[] graph, string[] route)
         {
             int distance = 0;
 

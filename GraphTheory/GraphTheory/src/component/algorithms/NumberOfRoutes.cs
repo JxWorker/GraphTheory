@@ -12,19 +12,26 @@ namespace GraphTheory.src.component.algorithms
         List<Route> nextPossibleRoute = new List<Route>();
         List<List<Route>> listOfPosssibleRoutes = new List<List<Route>>();
 
-        public int Count(Route[] graph, string start, string end)
+        public int GetCountOfRoutes()
         {
-            nextPossibleRoute = new List<Route>();
-            listOfPosssibleRoutes = new List<List<Route>>();
-
-            SearchForRoutes(graph, start);
-            RemoveRoute(end);
-
             return listOfPosssibleRoutes.Count;
         }
 
-        private void SearchForRoutes(Route[] graph, string start)
+        public void RemoveRoute(string end)
         {
+            foreach (List<Route> route in listOfPosssibleRoutes)
+            {
+                if (route.Last().End != end)
+                {
+                    listOfPosssibleRoutes.Remove(route);
+                }
+            }
+        }
+
+        public void SearchForRoutes(Route[] graph, string start)
+        {
+            nextPossibleRoute = new List<Route>();
+            listOfPosssibleRoutes = new List<List<Route>>();
             int count = NumberOfPossibleRoutes(graph, start);
             Route[] routes = GetAllRoutes(graph, count, start);
             for (int i = 0; i < count; i++)
@@ -91,25 +98,6 @@ namespace GraphTheory.src.component.algorithms
             {
                 Console.WriteLine(e.Message);
                 return Array.Empty<Route>();
-            }
-        }
-
-        private void AddNextRoute(Route route)
-        {
-            if (nextPossibleRoute.Last().End == route.Start && !nextPossibleRoute.Contains(route))
-            {
-                nextPossibleRoute.Add(route);
-            }
-        }
-
-        private void RemoveRoute(string end)
-        {
-            foreach (List<Route> route in listOfPosssibleRoutes)
-            {
-                if (route.Last().End != end)
-                {
-                    listOfPosssibleRoutes.Remove(route);
-                }
             }
         }
     }
