@@ -9,6 +9,12 @@ namespace GraphTheory.src.component.algorithms
 {
     internal class DistanceOfRoutes
     {
+        /// <summary>
+        /// Returns the distance if the route exist and -1 if it does not exist.
+        /// </summary>
+        /// <param name="graph">All the routes which create a graph.</param>
+        /// <param name="route">A given route.</param>
+        /// <returns>The distance of a route or that this route does not exist.</returns>
         public int DistanceOfRoute(Route[] graph, string[] route)
         {
             int distance = 0;
@@ -27,6 +33,13 @@ namespace GraphTheory.src.component.algorithms
             return distance;
         }
 
+        /// <summary>
+        /// Returns the distance if there is a route between two points and -1 if there does not exist a route between two points.
+        /// </summary>
+        /// <param name="graph">All the routes which create a graph.</param>
+        /// <param name="start">The starting point.</param>
+        /// <param name="end">The ending point.</param>
+        /// <returns>The distance between two points or that no route exist between two points.</returns>
         private int SearchForRoute(Route[] graph, string start, string end)
         {
             for (int i = 0; i <= graph.Length; i++)
