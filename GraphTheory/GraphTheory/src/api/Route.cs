@@ -8,9 +8,9 @@ namespace GraphTheory.src.api
 {
     internal class Route
     {
-        private string Start { get; }
-        private string End { get; }
-        private int Distance { get; }
+        public string Start { get; }
+        public string End { get; }
+        public int Distance { get; }
 
         public Route(string pStart, string pEnd, int pDistance)
         {
