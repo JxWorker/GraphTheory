@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphTheory.src.api
 {
-    internal class Route
+    public class Route
     {
         public string Start { get; }
         public string End { get; }

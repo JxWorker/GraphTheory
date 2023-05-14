@@ -8,24 +8,42 @@ using System.Threading.Tasks;
 
 namespace GraphTheory.src.component
 {
-    internal class Algorithm : IGraphTheoryService
+    public class Algorithm : IGraphTheoryService
     {
         DistanceOfRoutes distanceOfRoutes = new DistanceOfRoutes();
         NumberOfRoutes numberOfRoutes = new NumberOfRoutes();
         ShortesRoute shortesRoute = new ShortesRoute();
-        public int DistanceOfRoutes(Route[] graph, string[] route)
+        public string DistanceOfRoutes(Route[] graph, string[] route)
         {
-           return distanceOfRoutes.CalculateDistance(graph, route);
+            int distacne = distanceOfRoutes.CalculateDistance(graph, route);
+
+            if (distacne == -1)
+            {
+                return "NO SUCH ROUTE";
+            }
+            else
+            {
+                return distacne.ToString();
+            }
+            
         }
 
-        public int NumberOfRoutes(Route[] graph, string start, string end)
+        public string NumberOfRoutes(Route[] graph, string start, string end)
         {
             numberOfRoutes.SearchForRoutes(graph, start);
             numberOfRoutes.RemoveRoute(end);
-            return numberOfRoutes.GetCountOfRoutes();
+            int count = numberOfRoutes.GetCountOfRoutes();
+            if (count == 0)
+            {
+                return "NO SUCH ROUTE";
+            }
+            else
+            {
+                return count.ToString();
+            }
         }
 
-        public int ShortesRoute(Route[] graph, string start, string end)
+        public string ShortesRoute(Route[] graph, string start, string end)
         {
             throw new NotImplementedException();
         }
