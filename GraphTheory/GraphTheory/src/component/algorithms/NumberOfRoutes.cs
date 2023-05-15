@@ -9,96 +9,48 @@ namespace GraphTheory.src.component.algorithms
 {
     internal class NumberOfRoutes
     {
-        List<Route> nextPossibleRoute = new List<Route>();
-        List<List<Route>> listOfPosssibleRoutes = new List<List<Route>>();
-
-        public int GetCountOfRoutes()
+        public int GetCountOfRoutes(List<List<Route>> listOfPosssibleRoutes)
         {
             return listOfPosssibleRoutes.Count;
         }
 
-        public void RemoveRoute(string end)
+        public int GetCountOfRoutesWithExactStopps(List<List<Route>> listOfPosssibleRoutes, int numberOfStopps)
         {
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (route.Last().End != end)
+                if (route.Count - 2 != numberOfStopps)
                 {
                     listOfPosssibleRoutes.Remove(route);
                 }
             }
+
+            return listOfPosssibleRoutes.Count;
         }
 
-        public void SearchForRoutes(Route[] graph, string start)
+        public int GetCountOfRoutesWithEqualOrLessStopps(List<List<Route>> listOfPosssibleRoutes, int numberOfStopps)
         {
-            nextPossibleRoute = new List<Route>();
-            listOfPosssibleRoutes = new List<List<Route>>();
-            int count = NumberOfPossibleRoutes(graph, start);
-            Route[] routes = GetAllRoutes(graph, count, start);
-            for (int i = 0; i < count; i++)
+            foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                nextPossibleRoute.Add(routes[i]);
-                SearchForAllRoutes(graph, routes[i].End, NumberOfPossibleRoutes(graph, routes[i].End));
-                listOfPosssibleRoutes.Add(nextPossibleRoute);
-                nextPossibleRoute = new List<Route>();
-            }
-        }
-
-        private void SearchForAllRoutes(Route[] graph, string start, int count)
-        {
-            Route[] routes = GetAllRoutes(graph, count, start);
-            if (count == 1 && !nextPossibleRoute.Contains(routes[0]))
-            {
-                nextPossibleRoute.Add(routes[0]);
-                SearchForAllRoutes(graph, routes[0].End, NumberOfPossibleRoutes(graph, routes[0].End));
-            }
-            else if (count > 1)
-            {
-                List<List<Route>> temp = new List<List<Route>>();
-                temp.Add(nextPossibleRoute);
-                for (int i = 0; i < count; i++)
+                if (route.Count - 2 > numberOfStopps)
                 {
-                    if (!nextPossibleRoute.Contains(routes[i]))
-                    {
-                        nextPossibleRoute.Add(routes[i]);
-                        SearchForAllRoutes(graph, routes[0].End, NumberOfPossibleRoutes(graph, routes[0].End));
-                    }
-                    nextPossibleRoute = temp.Last();
+                    listOfPosssibleRoutes.Remove(route);
                 }
             }
+
+            return listOfPosssibleRoutes.Count;
         }
 
-        private int NumberOfPossibleRoutes(Route[] graph, string start)
+        public int GetCountOfRoutesEqualOrMoreStopps(List<List<Route>> listOfPosssibleRoutes, int numberOfStopps)
         {
-            int count = 0;
-            foreach (Route route in graph)
+            foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (route.Start == start)
+                if (route.Count - 2 < numberOfStopps)
                 {
-                    count++;
+                    listOfPosssibleRoutes.Remove(route);
                 }
             }
-            return count;
-        }
 
-        private Route[] GetAllRoutes(Route[] graph, int count, string start)
-        {
-            try
-            {
-                Route[] routes = new Route[count];
-                foreach (Route route in graph)
-                {
-                    if (route.Start.Equals(start))
-                    {
-                        routes[count--] = route;
-                    }
-                }
-                return routes;
-            }
-            catch (IndexOutOfRangeException e)
-            {
-                Console.WriteLine(e.Message);
-                return Array.Empty<Route>();
-            }
+            return listOfPosssibleRoutes.Count;
         }
     }
 }
