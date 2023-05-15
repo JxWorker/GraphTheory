@@ -22,11 +22,21 @@ namespace GraphTheory.src.api
         /// <param name="graph">All the routes which create a graph.</param>
         /// <param name="start">The start point.</param>
         /// <param name="end">The end point.</param>
-        /// <param name="numberOfStopps">The number of stops a route can have.</param>
-        /// <param name="countType"></param>
+        /// <param name="countType">
+        /// 1: Counts the number of routes between the start and end point.
+        /// 2: Counts the number of routes between the start and end point with exact stopps.
+        /// 3: Counts the number of routes between the start and end point with equal or less stopps.
+        /// 4: Counts the number of routes between the start and end point with equal or more stopps.
+        /// 5: Counts the number of routes between the start and end point with exact distance.
+        /// 6: Counts the number of routes between the start and end point with equal or less distance.
+        /// 7: Counts the number of routes between the start and end point with equal or more distance.
+        /// Default: Returns 0.
+        /// </param>
         /// <param name="loopLimit">How many times the same route is allowed to show up.</param>
+        /// <param name="numberOfStopps">The number of stops a route can have.</param>
+        /// <param name="distanceLimit">The distance limit between the start and end point.</param>
         /// <returns>The number of routes with the given conditions or "NO SUCH ROUTE" if there does not exist such a route.</returns>
-        public string NumberOfRoutes(Route[] graph, string start, string end, int numberOfStopps, int countType, int loopLimit);
+        public string NumberOfRoutes(Route[] graph, string start, string end, int countType, int loopLimit, int numberOfStopps, int distanceLimit);
 
         /// <summary>
         /// 

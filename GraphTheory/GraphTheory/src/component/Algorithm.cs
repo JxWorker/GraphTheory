@@ -30,7 +30,7 @@ namespace GraphTheory.src.component
 
         }
 
-        public string NumberOfRoutes(Route[] graph, string start, string end, int numberOfStopps, int countType, int loopLimit)
+        public string NumberOfRoutes(Route[] graph, string start, string end, int countType, int loopLimit, int numberOfStopps, int distanceLimit)
         {
             int count = 0;
             List<List<Route>> list = searchForRoutes.SearchForRoute(graph, start, end, loopLimit);
@@ -38,16 +38,25 @@ namespace GraphTheory.src.component
             switch (countType)
             {
                 case 1:
-                    count = numberOfRoutes.GetCountOfRoutes(list);
+                    count = numberOfRoutes.CountOfRoutes(list);
                     break;
                 case 2:
-                    count = numberOfRoutes.GetCountOfRoutesWithExactStopps(list, numberOfStopps);
+                    count = numberOfRoutes.CountOfRoutesWithExactStopps(list, numberOfStopps);
                     break;
                 case 3:
-                    count = numberOfRoutes.GetCountOfRoutesWithEqualOrLessStopps(list, numberOfStopps);
+                    count = numberOfRoutes.CountOfRoutesWithEqualOrLessStopps(list, numberOfStopps);
                     break;
                 case 4:
-                    count = numberOfRoutes.GetCountOfRoutesEqualOrMoreStopps(list, numberOfStopps);
+                    count = numberOfRoutes.CountOfRoutesWithEqualOrMoreStopps(list, numberOfStopps);
+                    break;
+                case 5:
+                    count = numberOfRoutes.CountOfRoutesWithExactDistance(list, distanceLimit);
+                    break;
+                case 6:
+                    count = numberOfRoutes.CountOfRoutesWithEqualOrShorterDistance(list, distanceLimit);
+                    break;
+                case 7:
+                    count = numberOfRoutes.CountOfRoutesWithEqualOrLongerDistance(list, distanceLimit);
                     break;
                 default: 
                     count = 0;

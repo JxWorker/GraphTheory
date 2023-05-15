@@ -41,7 +41,7 @@ namespace GraphTheory.src.component.algorithms
         /// </summary>
         /// <param name="listOfRoutes">A list of routes from one point to another.</param>
         /// <returns name="distance">Sum of the distance from all routes.</returns>
-        private int CalculateDistance(List<Route> listOfRoutes)
+        public int CalculateDistance(List<Route> listOfRoutes)
         {
             int distance = 0;
 
