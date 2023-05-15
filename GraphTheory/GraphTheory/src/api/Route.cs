@@ -12,11 +12,29 @@ namespace GraphTheory.src.api
         public string End { get; }
         public int Distance { get; }
 
-        public Route(string pStart, string pEnd, int pDistance)
+        public Route(string start, string end, int distance)
         {
-            Start = pStart;
-            End = pEnd;
-            Distance = pDistance;
+            Start = start;
+            End = end;
+            Distance = distance;
+        }
+
+        public bool Comparer(Route route)
+        {
+            try
+            {
+                if (this.Start.Equals(route.Start)
+                    && this.End.Equals(route.End)
+                    && this.Distance == route.Distance)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (NullReferenceException e) {
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
     }
 }
