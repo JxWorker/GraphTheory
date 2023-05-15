@@ -19,7 +19,7 @@ namespace GraphTheory.src.component.algorithms
         {
             int distance = 0;
 
-            for (int i = 0; i < route.Length; i++)
+            for (int i = 0; i < route.Length - 1; i++)
             {
                 int index = SearchForRoute(graph, route[i], route[i + 1]);
 
@@ -42,14 +42,22 @@ namespace GraphTheory.src.component.algorithms
         /// <returns>The distance between two points or that no route exist between two points.</returns>
         private int SearchForRoute(Route[] graph, string start, string end)
         {
-            for (int i = 0; i <= graph.Length; i++)
+            try
             {
-                if (graph[i].Start.Equals(start) && graph[i].End.Equals(end))
+                for (int i = 0; i < graph.Length; i++)
                 {
-                    return graph[i].Distance;
+                    if (graph[i].Start.Equals(start) && graph[i].End.Equals(end))
+                    {
+                        return graph[i].Distance;
+                    }
                 }
+                return -1;
             }
-            return -1;
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+                return -1;
+            }
         }
     }
 }
