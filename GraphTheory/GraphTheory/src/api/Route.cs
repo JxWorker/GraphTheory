@@ -19,6 +19,11 @@ namespace GraphTheory.src.api
             Distance = distance;
         }
 
+        /// <summary>
+        /// Returns true if route and this.route are equal and false if not.
+        /// </summary>
+        /// <param name="route">The route to compare this.route with.</param>
+        /// <returns>True if this.route and route have the same start, end and distance. Flase if they are not equal.</returns>
         public bool Comparer(Route route)
         {
             try
