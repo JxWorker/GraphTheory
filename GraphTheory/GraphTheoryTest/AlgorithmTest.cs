@@ -33,8 +33,32 @@ namespace GraphTheoryTest
         [TestMethod]
         public void NumberOfRoutes_A_F_Should_Return_3()
         {
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 0, 1, 1);
+            Assert.AreEqual("3", actual);
+        }
+
+        [TestMethod]
+        public void NumberOfRoutes_H_A_Should_Return_NO_SUCH_ROUTE()
+        {
+            string actual = algorithm.NumberOfRoutes(graph, "H", "A", 0, 0, 1);
+            Assert.AreEqual("NO SUCH ROUTE", actual);
+
+            string actual1 = algorithm.NumberOfRoutes(graph, "H", "A", 0, 1, 1);
+            Assert.AreEqual("NO SUCH ROUTE", actual1);
+        }
+
+        [TestMethod]
+        public void NumberOfRoutes_A_F_Should_Return_3()
+        {
             string actual = algorithm.NumberOfRoutes(graph, "A", "F");
             Assert.AreEqual("3", actual);
+        }
+
+        [TestMethod]
+        public void NumberOfRoutes_H_A_Should_Return_NO_SUCH_ROUTE()
+        {
+            string actual = algorithm.NumberOfRoutes(graph, "H", "A");
+            Assert.AreEqual("NO SUCH ROUTE", actual);
         }
 
         [TestMethod]
@@ -46,6 +70,19 @@ namespace GraphTheoryTest
         #endregion
 
         #region Test ShortesRoute
+        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        public void ShortesRoute_A_F_Should_Return()
+        {
+            string actual = algorithm.ShortesRoute(graph, "A", "F");
+            Assert.AreEqual("9", actual);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        public void ShortesRoute_H_A_Should_Return_NO_SUCH_ROUTE()
+        {
+            string actual = algorithm.ShortesRoute(graph, "H", "A");
+            Assert.AreEqual("NO SUCH ROUTE", actual);
+        }
         #endregion
     }
 }
