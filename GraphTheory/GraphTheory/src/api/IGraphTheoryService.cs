@@ -10,7 +10,7 @@ namespace GraphTheory.src.api
     {
         public string DistanceOfRoutes(Route[] graph, string[] route);
 
-        public string NumberOfRoutes(Route[] graph, string start, string end);
+        public string NumberOfRoutes(Route[] graph, string start, string end, int numberOfStopps, int countType, int loopLimit);
 
         public string ShortesRoute(Route[] graph, string start, string end);
     }
