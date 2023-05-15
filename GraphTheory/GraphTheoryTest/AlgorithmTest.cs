@@ -4,7 +4,7 @@ using GraphTheory.src.component;
 namespace GraphTheoryTest
 {
     [TestClass]
-    internal class AlgorithmTest
+    public class AlgorithmTest
     {
         Algorithm algorithm = new Algorithm();
         Route[] graph = { new Route("A", "B", 2), new Route("B", "C", 1), new Route("B", "E", 3),
@@ -31,53 +31,74 @@ namespace GraphTheoryTest
 
         #region Test NumberOfRoutes
         [TestMethod]
-        public void NumberOfRoutes_A_F_Should_Return_3()
+        public void NumberOfRoutes_CountType1_A_F_Should_Return_3()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 0, 1, 1);
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 1, 1, 0, 0);
             Assert.AreEqual("3", actual);
         }
 
         [TestMethod]
         public void NumberOfRoutes_H_A_Should_Return_NO_SUCH_ROUTE()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "H", "A", 0, 0, 1);
+            string actual = algorithm.NumberOfRoutes(graph, "H", "A", 1, 1, 0, 0);
             Assert.AreEqual("NO SUCH ROUTE", actual);
 
-            string actual1 = algorithm.NumberOfRoutes(graph, "H", "A", 0, 1, 1);
+            string actual1 = algorithm.NumberOfRoutes(graph, "H", "A", 0, 1, 0, 0);
             Assert.AreEqual("NO SUCH ROUTE", actual1);
         }
 
         [TestMethod]
-        public void NumberOfRoutes_A_F_Should_Return_3()
+        public void NumberOfRoutes_CountType2_A_F_Should_Return_3()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "A", "F");
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 2, 5, 2, 0);
+            Assert.AreEqual("1", actual);
+        }
+
+        [TestMethod]
+        public void NumberOfRoutes_CountType3_A_F_Should_Return_3()
+        {
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 3, 5, 4, 0);
             Assert.AreEqual("3", actual);
         }
 
         [TestMethod]
-        public void NumberOfRoutes_H_A_Should_Return_NO_SUCH_ROUTE()
+        public void NumberOfRoutes_CountType4_A_F_Should_Return_3()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "H", "A");
-            Assert.AreEqual("NO SUCH ROUTE", actual);
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 4, 1, 2, 0);
+            Assert.AreEqual("3", actual);
         }
 
         [TestMethod]
-        public void NumberOfRoutes_H_A_Should_Return_NO_SUCH_ROUTE()
+        public void NumberOfRoutes_CountType5_A_F_Should_Return_3()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "H", "A");
-            Assert.AreEqual("NO SUCH ROUTE", actual);
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 5, 1, 0, 9);
+            Assert.AreEqual("1", actual);
+        }
+
+        [TestMethod]
+        public void NumberOfRoutes_CountType6_A_F_Should_Return_3()
+        {
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 6, 1, 0, 20);
+            Assert.AreEqual("3", actual);
+        }
+
+        [TestMethod]
+        public void NumberOfRoutes_CountType7_A_F_Should_Return_3()
+        {
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 7, 1, 0, 11);
+            Assert.AreEqual("2", actual);
         }
         #endregion
 
         #region Test ShortesRoute
-        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        [TestMethod]
         public void ShortesRoute_A_F_Should_Return()
         {
             string actual = algorithm.ShortesRoute(graph, "A", "F");
             Assert.AreEqual("9", actual);
         }
 
-        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        [TestMethod]
         public void ShortesRoute_H_A_Should_Return_NO_SUCH_ROUTE()
         {
             string actual = algorithm.ShortesRoute(graph, "H", "A");
