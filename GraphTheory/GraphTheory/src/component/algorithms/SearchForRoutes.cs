@@ -31,11 +31,11 @@ namespace GraphTheory.src.component.algorithms
                 for (int i = 0; i < count; i++)
                 {
                     nextPossibleRoute.Add(routes[i]);
-                    SearchForAllRoutes(graph, routes[i].End, NumberOfPossibleRoutes(graph, routes[i].End), loopLimit);
-                    listOfPosssibleRoutes.Add(nextPossibleRoute);
+                    SearchForAllRoutes(graph, routes[i].End, end, NumberOfPossibleRoutes(graph, routes[i].End), loopLimit);
+                    //listOfPosssibleRoutes.Add(nextPossibleRoute);
                     nextPossibleRoute = new List<Route>();
                 }
-                RemoveRoute(end);
+                //RemoveRoute(end);
                 return listOfPosssibleRoutes;
             }
             catch (IndexOutOfRangeException e)
@@ -53,31 +53,29 @@ namespace GraphTheory.src.component.algorithms
         /// <param name="start">The start point of the routes.</param>
         /// <param name="count">The number of routes which start from the start point.</param>
         /// <param name="loopLimit">How many times a route is allowed to repeat.</param>
-        private void SearchForAllRoutes(Route[] graph, string start, int count, int loopLimit)
+        private void SearchForAllRoutes(Route[] graph, string start, string end, int count, int loopLimit)
         {
             try
             {
                 Route[] routes = GetAllRoutes(graph, count, start);
-                if (count == 1 && loopLimit > LoopCount(routes[0]))
+                List<List<Route>> temp = new List<List<Route>>();
+                temp.Add(new List<Route>(nextPossibleRoute));
+                for (int i = 0; i < count; i++)
                 {
-                    nextPossibleRoute.Add(routes[0]);
-                    SearchForAllRoutes(graph, routes[0].End, NumberOfPossibleRoutes(graph, routes[0].End), loopLimit);
-                    listOfPosssibleRoutes.Add(nextPossibleRoute);
-                }
-                else if (count > 1)
-                {
-                    List<List<Route>> temp = new List<List<Route>>();
-                    temp.Add(nextPossibleRoute);
-                    for (int i = 0; i < count; i++)
+                    if (loopLimit > LoopCount(routes[i]))
                     {
-                        if (loopLimit > LoopCount(routes[i]))
+                        nextPossibleRoute.Add(routes[i]);
+
+                        if (routes[i].End != end)
                         {
-                            nextPossibleRoute.Add(routes[i]);
-                            SearchForAllRoutes(graph, routes[i].End, NumberOfPossibleRoutes(graph, routes[i].End), loopLimit);
-                            listOfPosssibleRoutes.Add(nextPossibleRoute);
+                            SearchForAllRoutes(graph, routes[i].End, end, NumberOfPossibleRoutes(graph, routes[i].End), loopLimit);
                         }
-                        nextPossibleRoute = temp.Last();
                     }
+                    if(routes[i].End == end)
+                    {
+                        listOfPosssibleRoutes.Add(new List<Route>(nextPossibleRoute));
+                    }
+                    nextPossibleRoute = temp.Last();
                 }
             }
             catch (IndexOutOfRangeException e)
@@ -117,7 +115,7 @@ namespace GraphTheory.src.component.algorithms
             try
             {
                 Route[] routes = new Route[count];
-                for(int i = 0; i < graph.Length && count != 0; i++)
+                for (int i = 0; i < graph.Length && count != 0; i++)
                 {
                     if (graph[i].Start.Equals(start))
                     {
