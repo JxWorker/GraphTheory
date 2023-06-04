@@ -62,6 +62,7 @@ namespace GraphTheory.src.component.algorithms
                 {
                     nextPossibleRoute.Add(routes[0]);
                     SearchForAllRoutes(graph, routes[0].End, NumberOfPossibleRoutes(graph, routes[0].End), loopLimit);
+                    listOfPosssibleRoutes.Add(nextPossibleRoute);
                 }
                 else if (count > 1)
                 {
@@ -73,6 +74,7 @@ namespace GraphTheory.src.component.algorithms
                         {
                             nextPossibleRoute.Add(routes[i]);
                             SearchForAllRoutes(graph, routes[i].End, NumberOfPossibleRoutes(graph, routes[i].End), loopLimit);
+                            listOfPosssibleRoutes.Add(nextPossibleRoute);
                         }
                         nextPossibleRoute = temp.Last();
                     }
@@ -115,11 +117,11 @@ namespace GraphTheory.src.component.algorithms
             try
             {
                 Route[] routes = new Route[count];
-                foreach (Route route in graph)
+                for(int i = 0; i < graph.Length && count != 0; i++)
                 {
-                    if (route.Start.Equals(start))
+                    if (graph[i].Start.Equals(start))
                     {
-                        routes[count--] = route;
+                        routes[--count] = graph[i];
                     }
                 }
                 return routes;
