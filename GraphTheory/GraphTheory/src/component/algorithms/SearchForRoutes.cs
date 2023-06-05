@@ -49,10 +49,8 @@ namespace GraphTheory.src.component.algorithms
         /// <summary>
         /// Searches for all routes starting from the start point until the end point or an already crossed point.
         /// </summary>
-        /// <param name="graph">All the routes which create a graph.</param>
         /// <param name="start">The start point of the routes.</param>
         /// <param name="count">The number of routes which start from the start point.</param>
-        /// <param name="loopLimit">How many times a route is allowed to repeat.</param>
         private void SearchForAllRoutes(string start, int count)
         {
             try
@@ -94,7 +92,6 @@ namespace GraphTheory.src.component.algorithms
         /// <summary>
         /// Returns the number of routes starting from the start point.
         /// </summary>
-        /// <param name="graph">All the routes which create a graph.</param>
         /// <param name="start">The start point of the routes.</param>
         /// <returns>The number of routes which start from the start point.</returns>
         private int NumberOfPossibleRoutes(string start)
@@ -113,7 +110,6 @@ namespace GraphTheory.src.component.algorithms
         /// <summary>
         /// Returns all routes which are start from the start point.
         /// </summary>
-        /// <param name="graph">All the routes which create a graph.</param>
         /// <param name="count">The number of routes form the start point.</param>
         /// <param name="start">The start point of the routes.</param>
         /// <returns>All routes which start form the start point.</returns>
@@ -141,7 +137,6 @@ namespace GraphTheory.src.component.algorithms
         /// <summary>
         /// Removes all routes which do not stop at the end point.
         /// </summary>
-        /// <param name="end">The point were the route should end.</param>
         private List<List<Route>> RemoveRoute()
         {
             List<List<Route>> temp = new List<List<Route>>();
@@ -173,10 +168,13 @@ namespace GraphTheory.src.component.algorithms
             return count;
         }
 
-
+        /// <summary>
+        /// Adds the given route if it doesn't already exist to often.
+        /// </summary>
+        /// <param name="route">The route which should be added to possibleRoute.</param>
         private void AddRoute(Route route)
         {
-            if(loopLimit >= LoopCount(route))
+            if(loopLimit > LoopCount(route))
             {
                 possibleRoute.Add(route);
                 listOfPosssibleRoutes.Add(new List<Route>(possibleRoute));
