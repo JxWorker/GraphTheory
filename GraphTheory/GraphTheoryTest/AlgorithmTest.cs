@@ -31,13 +31,6 @@ namespace GraphTheoryTest
 
         #region Test NumberOfRoutes
         [TestMethod]
-        public void NumberOfRoutes_CountType1_A_F_Should_Return_3()
-        {
-            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 1, 1, 0, 0);
-            Assert.AreEqual("3", actual);
-        }
-
-        [TestMethod]
         public void NumberOfRoutes_H_A_Should_Return_NO_SUCH_ROUTE()
         {
             string actual = algorithm.NumberOfRoutes(graph, "H", "A", 1, 1, 0, 0);
@@ -48,10 +41,17 @@ namespace GraphTheoryTest
         }
 
         [TestMethod]
-        public void NumberOfRoutes_CountType2_A_F_Should_Return_1()
+        public void NumberOfRoutes_CountType1_A_F_Should_Return_5()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 2, 5, 2, 0);
-            Assert.AreEqual("1", actual);
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 1, 1, 0, 0);
+            Assert.AreEqual("5", actual);
+        }
+
+        [TestMethod]
+        public void NumberOfRoutes_CountType2_A_F_Should_Return_2()
+        {
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 2, 5, 4, 0);
+            Assert.AreEqual("2", actual);
         }
 
         [TestMethod]
@@ -62,10 +62,10 @@ namespace GraphTheoryTest
         }
 
         [TestMethod]
-        public void NumberOfRoutes_CountType4_A_F_Should_Return_3()
+        public void NumberOfRoutes_CountType4_A_F_Should_Return_4()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 4, 1, 2, 0);
-            Assert.AreEqual("3", actual);
+            string actual = algorithm.NumberOfRoutes(graph, "A", "F", 4, 1, 4, 0);
+            Assert.AreEqual("4", actual);
         }
 
         [TestMethod]
@@ -83,10 +83,10 @@ namespace GraphTheoryTest
         }
 
         [TestMethod]
-        public void NumberOfRoutes_CountType7_A_F_Should_Return_2()
+        public void NumberOfRoutes_CountType7_A_F_Should_Return_4()
         {
             string actual = algorithm.NumberOfRoutes(graph, "A", "F", 7, 1, 0, 11);
-            Assert.AreEqual("2", actual);
+            Assert.AreEqual("4", actual);
         }
         #endregion
 
