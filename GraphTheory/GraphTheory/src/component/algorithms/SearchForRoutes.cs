@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphTheory.src.component.algorithms
 {
@@ -15,7 +13,7 @@ namespace GraphTheory.src.component.algorithms
 
         private int loopLimit = 0;
         private string end = "";
-        private Route[] graph;
+        private Route[] graph = new Route[0];
 
         /// <summary>
         /// Returns a list of different routes between the start and end point.
@@ -38,8 +36,7 @@ namespace GraphTheory.src.component.algorithms
                 result = new List<List<Route>>();
 
                 SearchForAllRoutes(start, NumberOfPossibleRoutes(start));
-                RemoveRoute();
-                return result;
+                return RemoveRoute();
             }
             catch (IndexOutOfRangeException e)
             {
@@ -145,7 +142,7 @@ namespace GraphTheory.src.component.algorithms
         /// Removes all routes which do not stop at the end point.
         /// </summary>
         /// <param name="end">The point were the route should end.</param>
-        private void RemoveRoute()
+        private List<List<Route>> RemoveRoute()
         {
             List<List<Route>> temp = new List<List<Route>>();
             foreach (List<Route> route in result)
@@ -155,7 +152,7 @@ namespace GraphTheory.src.component.algorithms
                     temp.Add(new List<Route>(route));
                 }
             }
-            result = temp;
+            return temp;
         }
 
         /// <summary>
