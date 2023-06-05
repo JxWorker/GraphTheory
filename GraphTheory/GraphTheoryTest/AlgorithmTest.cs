@@ -92,7 +92,7 @@ namespace GraphTheoryTest
 
         #region Test ShortesRoute
         [TestMethod]
-        public void ShortesRoute_A_F_Should_Return()
+        public void ShortesRoute_A_F_Should_Return_9()
         {
             string actual = algorithm.ShortesRoute(graph, "A", "F");
             Assert.AreEqual("9", actual);
