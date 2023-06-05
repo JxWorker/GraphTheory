@@ -29,15 +29,16 @@ namespace GraphTheory.src.component.algorithms
         /// <returns>The number of possible routes between a start and end point with an exact number of stops.</returns>
         public int CountOfRoutesWithExactStopps(List<List<Route>> listOfPosssibleRoutes, int numberOfStopps)
         {
+            List<List<Route>> temp = new List<List<Route>>();
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (route.Count - 2 != numberOfStopps)
+                if (route.Count == numberOfStopps)
                 {
-                    listOfPosssibleRoutes.Remove(route);
+                    temp.Add(new List<Route>(route));
                 }
             }
 
-            return listOfPosssibleRoutes.Count;
+            return temp.Count;
         }
 
         /// <summary>
@@ -48,15 +49,16 @@ namespace GraphTheory.src.component.algorithms
         /// <returns>The number of possible routes between a start and end point with exact or less number of stops.</returns>
         public int CountOfRoutesWithEqualOrLessStopps(List<List<Route>> listOfPosssibleRoutes, int numberOfStopps)
         {
+            List<List<Route>> temp = new List<List<Route>>();
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (route.Count - 2 > numberOfStopps)
+                if (route.Count <= numberOfStopps)
                 {
-                    listOfPosssibleRoutes.Remove(route);
+                    temp.Add(new List<Route>(route));
                 }
             }
 
-            return listOfPosssibleRoutes.Count;
+            return temp.Count;
         }
 
         /// <summary>
@@ -67,15 +69,16 @@ namespace GraphTheory.src.component.algorithms
         /// <returns>The number of possible routes between a start and end point with exact or higher number of stops.</returns>
         public int CountOfRoutesWithEqualOrMoreStopps(List<List<Route>> listOfPosssibleRoutes, int numberOfStopps)
         {
+            List<List<Route>> temp = new List<List<Route>>();
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (route.Count - 2 < numberOfStopps)
+                if (route.Count >= numberOfStopps)
                 {
-                    listOfPosssibleRoutes.Remove(route);
+                    temp.Add(new List<Route>(route));
                 }
             }
 
-            return listOfPosssibleRoutes.Count;
+            return temp.Count;
         }
 
         /// <summary>
