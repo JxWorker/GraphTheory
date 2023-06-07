@@ -105,5 +105,19 @@ namespace GraphTheoryTest
             Assert.AreEqual("NO SUCH ROUTE", actual);
         }
         #endregion
+
+        [TestMethod]
+        public void ExistInGraph_D_Should_Return_True()
+        {
+            bool actual = algorithm.ExistInGraph(graph, "D");
+            Assert.AreEqual(true, actual);
+        }
+
+        [TestMethod]
+        public void ExistInGraph_Z_Should_Return_False()
+        {
+            bool actual = algorithm.ExistInGraph(graph, "Z");
+            Assert.AreEqual(false, actual);
+        }
     }
 }
