@@ -14,8 +14,8 @@ namespace GraphTheory.src.api
 
         public Route(string start, string end, int distance)
         {
-            Start = start;
-            End = end;
+            Start = start.ToUpper();
+            End = end.ToUpper();
             Distance = distance;
         }
 
