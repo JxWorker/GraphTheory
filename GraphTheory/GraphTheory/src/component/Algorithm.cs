@@ -27,7 +27,6 @@ namespace GraphTheory.src.component
             {
                 return distance.ToString();
             }
-
         }
 
         public string NumberOfRoutes(Route[] graph, string start, string end, int countType, int loopLimit, int numberOfStopps, int distanceLimit)
@@ -76,6 +75,7 @@ namespace GraphTheory.src.component
         public string ShortesRoute(Route[] graph, string start, string end)
         {
             int distance = shortesRoute.ShortestDistance(searchForRoutes.SearchForRoute(graph, start, end, 1));
+
             if (distance == -1)
             {
                 return "NO SUCH ROUTE";
@@ -84,6 +84,27 @@ namespace GraphTheory.src.component
             {
                 return distance.ToString();
             }
+        }
+
+        public bool ExistInGraph(Route[] graph, string point)
+        {
+            HashSet<string> existingPoints = new HashSet<string>();
+
+            foreach (Route route in graph)
+            {
+                existingPoints.Add(route.Start);
+                existingPoints.Add(route.End);
+            }
+
+            foreach (string str in existingPoints)
+            {
+                if(point.ToUpper() == str)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

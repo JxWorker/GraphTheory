@@ -46,5 +46,13 @@ namespace GraphTheory.src.api
         /// <param name="end">The end point.</param>
         /// <returns>The shortes distance between to points or "NO SUCH ROUTE" if the those points are not conected.</returns>
         public string ShortesRoute(Route[] graph, string start, string end);
+
+        /// <summary>
+        /// Returns true if the point exist in the graph and false if not.
+        /// </summary>
+        /// <param name="graph">All the routes which create a graph.</param>
+        /// <param name="point">The point to test.</param>
+        /// <returns>True if the point exist in the graph and false if not.</returns>
+        public bool ExistInGraph(Route[] graph, string point);
     }
 }
