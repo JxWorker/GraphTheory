@@ -28,14 +28,14 @@ namespace GraphTheory.src.component.algorithms
             try
             {
                 this.loopLimit = loopLimit;
-                this.end = end;
+                this.end = end.ToUpper();
                 this.graph = graph;
 
                 possibleRoute = new List<Route>();
                 listOfPosssibleRoutes = new List<List<Route>>();
                 result = new List<List<Route>>();
 
-                SearchForAllRoutes(start, NumberOfPossibleRoutes(start));
+                SearchForAllRoutes(start.ToUpper(), NumberOfPossibleRoutes(start.ToUpper()));
                 return RemoveRoute();
             }
             catch (IndexOutOfRangeException e)
