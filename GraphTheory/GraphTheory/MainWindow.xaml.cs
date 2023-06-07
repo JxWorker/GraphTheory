@@ -1,5 +1,5 @@
 ﻿using GraphTheory.src.api;
-using GraphTheory.src.component;
+using GraphTheory.src.wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,49 +31,19 @@ namespace GraphTheory
             new Route("E", "H", 9), new Route("E", "D", 7), new Route("D", "A", 5), new Route("H", "F", 6) };
         private Route[] graphCreated;
         private Route[] graph;
-        private Algorithm algorithm;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            algorithm = new Algorithm();
-
-            shortesEnd_textbox.MaxLength = 1;
-            shortesStart_textbox.MaxLength = 1;
         }
 
-        #region Distance
-        void OnClickDistance(object sender, RoutedEventArgs e)
+        void testClick(object sender, EventArgs e)
         {
+            CalculateWindowControl test = new CalculateWindowControl(graphTest);
+
+            windowContainer.Children.Add(test);
+            test.Visibility = Visibility.Visible;
         }
-        #endregion
-
-        #region Number
-        void OnClickNumber(object sender, RoutedEventArgs e)
-        {
-        }
-        #endregion
-
-        #region Shortes
-        void OnClickShortes(object sender, RoutedEventArgs e)
-        {
-            string start = shortesStart_textbox.Text;
-            string end = shortesEnd_textbox.Text;
-            string result;
-
-            if (algorithm.ExistInGraph(graph, start) && algorithm.ExistInGraph(graph, end))
-            {
-                result = algorithm.ShortesRoute(graph, start, end);
-
-            }
-            else
-            {
-                result = "Please type in a valid Point!";
-            }
-
-            shortesResult_textbox.Text = result;
-        }
-        #endregion
     }
 }

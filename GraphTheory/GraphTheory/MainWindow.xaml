@@ -1,0 +1,26 @@
+﻿<Window x:Class="GraphTheory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GraphTheory"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="524" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Left" Width="209">
+            <ComboBox Width="120" Margin="0,10,0,10">
+                <ComboBoxItem Content="Create graph"/>
+                <ComboBoxItem Content="AIT gragh"/>
+                <ComboBoxItem Content="Test graph"/>
+            </ComboBox>
+            <Button Content="test" Click="testClick" ClickMode="Press"/>
+            <Grid x:Name="selectContainer" Height="446"/>
+        </StackPanel>
+        <Grid x:Name="windowContainer" HorizontalAlignment="Stretch" Width="586" Margin="214,0,0,0"/>
+
+
+    </Grid>
+</Window>
