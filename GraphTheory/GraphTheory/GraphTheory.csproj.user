@@ -7,7 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="src\wpf\MainWindow.xaml">
+    <Compile Update="src\wpf\CalculateWindowControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="src\wpf\ResultWindowControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="src\wpf\CalculateWindowControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="src\wpf\ResultWindowControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
