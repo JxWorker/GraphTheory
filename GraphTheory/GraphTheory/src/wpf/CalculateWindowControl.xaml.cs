@@ -23,7 +23,7 @@ namespace GraphTheory.src.wpf
     /// </summary>
     public partial class CalculateWindowControl : UserControl
     {
-        Route[] graph = new Route[0];
+        Route[] graph;
         Algorithm algorithm;
 
         public CalculateWindowControl(Route[] graph)
@@ -67,6 +67,46 @@ namespace GraphTheory.src.wpf
         #region Number
         void OnClickNumber(object sender, RoutedEventArgs e)
         {
+            string start = numberStart_textbox.Text;
+            string end = numberEnd_textbox.Text;
+            string stopOrDistance = numberStopDistance_textbox.Text;
+            string looptime = numberLooptime_texbox.Text;
+            int countType = numberStopDistance_combobox.SelectedIndex;
+
+            if(countType == -1)
+            {
+                numberResult_textbox.Text = "Please select a way to count the routes!";
+                return;
+            }
+
+            if(!(algorithm.ExistInGraph(graph, start) && algorithm.ExistInGraph(graph, end)))
+            {
+                numberResult_textbox.Text = "Please type in a valid point!";
+                return;
+            }
+
+            if(!(Regex.IsMatch(stopOrDistance, @"^\d+$") && Regex.IsMatch(looptime, @"^\d+$")))
+            {
+                numberResult_textbox.Text = "Please type in a valid value!";
+                return;
+            }
+
+            int loop = int.Parse(looptime);
+            int stops;
+            int distance;
+
+            if(countType < 5)
+            {
+                stops = int.Parse(stopOrDistance);
+                distance = 0;
+            }
+            else
+            {
+                stops = 0;
+                distance = int.Parse(stopOrDistance);
+            }            
+
+            numberResult_textbox.Text = algorithm.NumberOfRoutes(graph, start, end, countType, loop, stops, distance);
         }
         #endregion
 

@@ -11,7 +11,7 @@
             <StackPanel>
                 <Label x:Name="distanceRoute_label" Content="Please enter a route:" Width="185"/>
                 <TextBox x:Name="distanceRoute_textbox" TextWrapping="Wrap" Text="A-B-C-..." Width="180"/>
-                <Rectangle Height="119" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
+                <Rectangle Height="164" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
                 <Button x:Name="distanceCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickDistance" ClickMode="Press"/>
                 <Label x:Name="distanceResult_label" Content="Result:"/>
                 <TextBox x:Name="distanceResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
@@ -20,12 +20,22 @@
         <GroupBox Header="Number of routes" Margin="223,12,222,8" Width="200" HorizontalContentAlignment="Center">
             <StackPanel>
                 <Label x:Name="numberStart_label" Content="Start:"/>
-                <TextBox TextWrapping="Wrap" Width="180" MaxLength="1"/>
+                <TextBox x:Name="numberStart_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
                 <Label x:Name="numberEnd_label" Content="End:"/>
-                <TextBox TextWrapping="Wrap" Width="180" MaxLength="1"/>
-                <ComboBox x:Name="numberStopDistance_combobox" Width="120" Margin="0,5,0,5"/>
+                <TextBox x:Name="numberEnd_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
+                <ComboBox x:Name="numberStopDistance_combobox" Width="120" Margin="0,5,0,5">
+                    <ComboBoxItem Content="Number of possible routes"/>
+                    <ComboBoxItem Content="Routes with exactly X stops"/>
+                    <ComboBoxItem Content="Rroutes with equal or less stops"/>
+                    <ComboBoxItem Content="Routes with equal or more stops"/>
+                    <ComboBoxItem Content="Routes with an exact distance"/>
+                    <ComboBoxItem Content="Routes with equal or smaller distance"/>
+                    <ComboBoxItem Content="Routes with equal or higher distance"/>
+                </ComboBox>
                 <Label x:Name="numberStopDistance_label" Content=""/>
                 <TextBox x:Name="numberStopDistance_textbox" TextWrapping="Wrap" Width="180"/>
+                <Label x:Name="looptime_label" Content=""/>
+                <TextBox x:Name="numberLooptime_texbox" TextWrapping="Wrap" Width="180"/>
                 <Button x:Name="numberCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickNumber" ClickMode="Press"/>
                 <Label x:Name="numberResult_Label" Content="Result:"/>
                 <TextBox x:Name="numberResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
@@ -37,7 +47,7 @@
                 <TextBox x:Name="shortesStart_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
                 <Label x:Name="shortesEnd_label" Content="End:"/>
                 <TextBox x:Name="shortesEnd_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
-                <Rectangle Height="75" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
+                <Rectangle Height="119" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
                 <Button x:Name="shortesCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickShortes" ClickMode="Press"/>
                 <Label x:Name="shortesResult_label" Content="Result:"/>
                 <TextBox x:Name="shortesResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>

@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraphTheory"
         mc:Ignorable="d"
-        Title="MainWindow" Height="524" Width="800">
+        Title="MainWindow" Height="600" Width="950">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel HorizontalAlignment="Left" Width="209">
+        <StackPanel Margin="0,0,750,0">
             <ComboBox Width="120" Margin="0,10,0,10">
                 <ComboBoxItem Content="Create graph"/>
                 <ComboBoxItem Content="AIT gragh"/>
@@ -19,7 +19,7 @@
             <Button Content="test" Click="testClick" ClickMode="Press"/>
             <Grid x:Name="selectContainer" Height="446"/>
         </StackPanel>
-        <Grid x:Name="windowContainer" HorizontalAlignment="Stretch" Width="586" Margin="214,0,0,0"/>
+        <Grid x:Name="windowContainer" Margin="205,10,10,0"/>
 
 
     </Grid>
