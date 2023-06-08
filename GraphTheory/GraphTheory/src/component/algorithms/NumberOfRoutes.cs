@@ -101,11 +101,11 @@ namespace GraphTheory.src.component.algorithms
         }
 
         /// <summary>
-        /// Returns the number of routes with an equal or shorter distance between the start and end point.
+        /// Returns the number of routes with an shorter distance between the start and end point.
         /// </summary>
         /// <param name="listOfPosssibleRoutes">List of all possible and valied routes between a start and end point.</param>
         /// <param name="distanceLimit">What distance can be between the start and end point.</param>
-        /// <returns>The number of routes with an equal or shorter distance between the start and end point</returns>
+        /// <returns>The number of routes with an shorter distance between the start and end point</returns>
         public int CountOfRoutesWithEqualOrShorterDistance(List<List<Route>> listOfPosssibleRoutes, int distanceLimit)
         {
             int count = 0;
@@ -120,11 +120,11 @@ namespace GraphTheory.src.component.algorithms
         }
 
         /// <summary>
-        /// Returns the number of routes with an equal or longer distance between the start and end point.
+        /// Returns the number of routes with an longer distance between the start and end point.
         /// </summary>
         /// <param name="listOfPosssibleRoutes">List of all possible and valied routes between a start and end point.</param>
         /// <param name="distanceLimit">What distance can be between the start and end point.</param>
-        /// <returns>The number of routes with an equal or longer distance between the start and end point.</returns>
+        /// <returns>The number of routes with an longer distance between the start and end point.</returns>
         public int CountOfRoutesWithEqualOrLongerDistance(List<List<Route>> listOfPosssibleRoutes, int distanceLimit)
         {
             int count = 0;

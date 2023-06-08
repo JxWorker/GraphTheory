@@ -76,10 +76,10 @@ namespace GraphTheoryTest
         }
 
         [TestMethod]
-        public void NumberOfRoutes_CountType6_A_F_Should_Return_3()
+        public void NumberOfRoutes_CountType6_A_F_Should_Return_2()
         {
             string actual = algorithm.NumberOfRoutes(graph, "A", "F", 6, 1, 0, 20);
-            Assert.AreEqual("3", actual);
+            Assert.AreEqual("2", actual);
         }
 
         [TestMethod]

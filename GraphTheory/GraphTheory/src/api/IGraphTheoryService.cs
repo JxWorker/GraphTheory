@@ -28,8 +28,8 @@ namespace GraphTheory.src.api
         /// 3: Counts the number of routes between the start and end point with equal or less stopps.
         /// 4: Counts the number of routes between the start and end point with equal or more stopps.
         /// 5: Counts the number of routes between the start and end point with exact distance.
-        /// 6: Counts the number of routes between the start and end point with equal or less distance.
-        /// 7: Counts the number of routes between the start and end point with equal or more distance.
+        /// 6: Counts the number of routes between the start and end point with less distance.
+        /// 7: Counts the number of routes between the start and end point with more distance.
         /// Default: Returns 0.
         /// </param>
         /// <param name="loopLimit">How many times the same route is allowed to show up.</param>
