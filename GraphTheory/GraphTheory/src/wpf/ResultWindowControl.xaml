@@ -5,8 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GraphTheory.src.wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="650">
     <Grid>
-            
+        <GroupBox Header="Tasks" HorizontalAlignment="Left" Width="325">
+            <StackPanel x:Name="task_stackpanel">
+                <Label x:Name="task_label1" Content="Label" Margin="0 10 0 0"/>
+                <Label x:Name="task_label2" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="task_label3" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="task_label4" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="task_label5" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="task_label6" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="task_label7" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="task_label8" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="task_label9" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="task_label10" Content="Label" Margin="0 5 0 0"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Results" HorizontalAlignment="Right" Width="325">
+            <StackPanel x:Name="result_stackpanel">
+                <Label x:Name="result_label1" Content="Label" Margin="0 10 0 0"/>
+                <Label x:Name="result_label2" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="result_label3" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="result_label4" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="result_label5" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="result_label6" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="result_label7" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="result_label8" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="result_label9" Content="Label" Margin="0 5 0 0"/>
+                <Label x:Name="result_label10" Content="Label" Margin="0 5 0 0"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </UserControl>
