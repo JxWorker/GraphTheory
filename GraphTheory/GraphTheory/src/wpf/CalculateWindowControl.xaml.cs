@@ -23,14 +23,14 @@ namespace GraphTheory.src.wpf
     /// </summary>
     public partial class CalculateWindowControl : UserControl
     {
-        Route[] graph;
-        Algorithm algorithm;
+        private readonly Route[] graph;
+        private readonly IGraphTheoryService graphTheoryService;
 
-        public CalculateWindowControl(Route[] graph)
+        public CalculateWindowControl(IGraphTheoryService graphTheoryService, Route[] graph)
         {
             InitializeComponent();
 
-            algorithm = new Algorithm();
+            graphTheoryService = new Algorithm();
             this.graph = graph;
         }
 
@@ -53,7 +53,7 @@ namespace GraphTheory.src.wpf
                     route[i] = input.Substring(i, 1).ToUpper();
                 }
 
-                result = algorithm.DistanceOfRoutes(graph, route);
+                result = graphTheoryService.DistanceOfRoutes(graph, route);
             }
             else
             {
@@ -79,7 +79,7 @@ namespace GraphTheory.src.wpf
                 return;
             }
 
-            if(!(algorithm.ExistInGraph(graph, start) && algorithm.ExistInGraph(graph, end)))
+            if(!(graphTheoryService.ExistInGraph(graph, start) && graphTheoryService.ExistInGraph(graph, end)))
             {
                 numberResult_textbox.Text = "Please type in a valid point!";
                 return;
@@ -106,7 +106,7 @@ namespace GraphTheory.src.wpf
                 distance = int.Parse(stopOrDistance);
             }            
 
-            numberResult_textbox.Text = algorithm.NumberOfRoutes(graph, start, end, countType, loop, stops, distance);
+            numberResult_textbox.Text = graphTheoryService.NumberOfRoutes(graph, start, end, countType, loop, stops, distance);
         }
         #endregion
 
@@ -117,9 +117,9 @@ namespace GraphTheory.src.wpf
             string end = shortesEnd_textbox.Text;
             string result;
 
-            if (algorithm.ExistInGraph(graph, start) && algorithm.ExistInGraph(graph, end))
+            if (graphTheoryService.ExistInGraph(graph, start) && graphTheoryService.ExistInGraph(graph, end))
             {
-                result = algorithm.ShortesRoute(graph, start, end);
+                result = graphTheoryService.ShortesRoute(graph, start, end);
             }
             else
             {
