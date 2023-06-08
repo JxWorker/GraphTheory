@@ -83,7 +83,7 @@ namespace GraphTheory.src.component.algorithms
                     }
                 }
             }
-            catch (IndexOutOfRangeException e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }

@@ -111,7 +111,7 @@ namespace GraphTheory.src.component.algorithms
             int count = 0;
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (distanceLimit >= shortesRoute.CalculateDistance(route))
+                if (distanceLimit > shortesRoute.CalculateDistance(route))
                 {
                     count++;
                 }
@@ -130,7 +130,7 @@ namespace GraphTheory.src.component.algorithms
             int count = 0;
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (distanceLimit <= shortesRoute.CalculateDistance(route))
+                if (distanceLimit < shortesRoute.CalculateDistance(route))
                 {
                     count++;
                 }
