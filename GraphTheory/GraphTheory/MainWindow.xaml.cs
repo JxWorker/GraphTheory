@@ -1,4 +1,5 @@
 ﻿using GraphTheory.src.api;
+using GraphTheory.src.component;
 using GraphTheory.src.wpf;
 using System;
 using System.Collections.Generic;
@@ -32,18 +33,22 @@ namespace GraphTheory
         private Route[] graphCreated;
         private Route[] graph;
 
+        private IGraphTheoryService graphTheoryService;
+
         public MainWindow()
         {
             InitializeComponent();
 
+            graphTheoryService = new Algorithm();
         }
 
         void testClick(object sender, EventArgs e)
         {
-            CalculateWindowControl test = new CalculateWindowControl(graphTest);
+            CalculateWindowControl test = new CalculateWindowControl(graphTheoryService, graphTest);
+            ResultWindowControl test1 = new ResultWindowControl(graphTheoryService, graphAIT);
 
-            windowContainer.Children.Add(test);
-            test.Visibility = Visibility.Visible;
+            windowContainer.Children.Add(test1);
+            test1.Visibility = Visibility.Visible;
         }
     }
 }
