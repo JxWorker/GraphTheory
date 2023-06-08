@@ -106,6 +106,7 @@ namespace GraphTheoryTest
         }
         #endregion
 
+        #region ExistInGraph
         [TestMethod]
         public void ExistInGraph_D_Should_Return_True()
         {
@@ -119,5 +120,6 @@ namespace GraphTheoryTest
             bool actual = algorithm.ExistInGraph(graph, "Z");
             Assert.AreEqual(false, actual);
         }
+        #endregion
     }
 }
