@@ -30,7 +30,7 @@ namespace GraphTheory.src.wpf
         {
             InitializeComponent();
 
-            graphTheoryService = new Algorithm();
+            this.graphTheoryService = graphTheoryService;
             this.graph = graph;
         }
 
