@@ -4,7 +4,7 @@ using GraphTheory.src.component;
 namespace GraphTheoryTest
 {
     [TestClass]
-    public class AlgorithmTest
+    public class AlgorithmTestOwnGraph
     {
         Algorithm algorithm = new Algorithm();
         Route[] graph = { new Route("A", "B", 2), new Route("B", "C", 1), new Route("B", "E", 3),
