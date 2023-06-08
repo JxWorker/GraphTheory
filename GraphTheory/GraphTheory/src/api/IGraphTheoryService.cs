@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphTheory.src.api
 {
-    internal interface IGraphTheoryService
+    public interface IGraphTheoryService
     {
         /// <summary>
         /// Returns the distance of a given route or "NO SUCH ROUTE" it it does not exist.
