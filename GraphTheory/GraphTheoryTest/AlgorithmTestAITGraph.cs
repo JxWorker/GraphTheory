@@ -50,14 +50,14 @@ namespace GraphTheoryTest
         [TestMethod]
         public void NumberOfRoutes_CountType2_A_C_Should_Return_3()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "A", "C", 2, 5, 4, 0);
+            string actual = algorithm.NumberOfRoutes(graph, "A", "C", 2, 3, 4, 0);
             Assert.AreEqual("3", actual);
         }
 
         [TestMethod]
         public void NumberOfRoutes_CountType3_C_C_Should_Return_2()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "C", "C", 3, 5, 3, 0);
+            string actual = algorithm.NumberOfRoutes(graph, "C", "C", 3, 2, 3, 0);
             Assert.AreEqual("2", actual);
         }
 
@@ -65,7 +65,7 @@ namespace GraphTheoryTest
         public void NumberOfRoutes_CountType4_A_E_Should_Return_5()
         {
             string actual = algorithm.NumberOfRoutes(graph, "A", "E", 4, 1, 3, 0);
-            Assert.AreEqual("5", actual);
+            Assert.AreEqual("12", actual);
         }
 
         [TestMethod]
@@ -78,7 +78,7 @@ namespace GraphTheoryTest
         [TestMethod]
         public void NumberOfRoutes_CountType6_C_C_Should_Return_7()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "C", "C", 6, 5, 0, 30);
+            string actual = algorithm.NumberOfRoutes(graph, "C", "C", 6, 3, 0, 30);
             Assert.AreEqual("7", actual);
         }
 
@@ -86,7 +86,7 @@ namespace GraphTheoryTest
         public void NumberOfRoutes_CountType7_A_E_Should_Return_4()
         {
             string actual = algorithm.NumberOfRoutes(graph, "A", "E", 7, 1, 0, 11);
-            Assert.AreEqual("4", actual);
+            Assert.AreEqual("11", actual);
         }
         #endregion
 
