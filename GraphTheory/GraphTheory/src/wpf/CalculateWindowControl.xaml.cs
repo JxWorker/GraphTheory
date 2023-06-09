@@ -1,20 +1,7 @@
 ﻿using GraphTheory.src.api;
-using GraphTheory.src.component;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GraphTheory.src.wpf
 {
@@ -30,12 +17,14 @@ namespace GraphTheory.src.wpf
         {
             InitializeComponent();
 
+            numberStopDistance_textbox.Visibility = Visibility.Hidden;
+
             this.graphTheoryService = graphTheoryService;
             this.graph = graph;
         }
 
         #region Distance
-        void OnClickDistance(object sender, RoutedEventArgs e)
+        private void OnClickDistance(object sender, RoutedEventArgs e)
         {
             string input = distanceRoute_textbox.Text;
             string[] route;
@@ -65,12 +54,44 @@ namespace GraphTheory.src.wpf
         #endregion
 
         #region Number
-        void OnClickNumber(object sender, RoutedEventArgs e)
+        private void NumberStopDistanceComboboxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem comboBoxItem = (ComboBoxItem)numberStopDistance_combobox.SelectedItem;
+            numberStopDistance_textbox.Visibility = Visibility.Visible;
+
+            switch (comboBoxItem.Content.ToString())
+            {
+                case "Number of possible routes":
+                    numberStopDistance_label.Content = " ";
+                    numberStopDistance_textbox.Visibility = Visibility.Hidden;
+                    break;
+                case "Routes with exactly X stops":
+                    numberStopDistance_label.Content = "Number of Stops:";
+                    
+                    break;
+                case "Rroutes with equal or less stops":
+                    numberStopDistance_label.Content = "Number of Stops:";
+                    break;
+                case "Routes with equal or more stops":
+                    numberStopDistance_label.Content = "Number of Stops:";
+                    break;
+                case "Routes with an exact distance":
+                    numberStopDistance_label.Content = "Distance:";
+                    break;
+                case "Routes with smaller distance":
+                    numberStopDistance_label.Content = "Distance:";
+                    break;
+                case "Routes with higher distance":
+                    numberStopDistance_label.Content = "Distance:";
+                    break;
+            }
+        }
+
+        private void OnClickNumber(object sender, RoutedEventArgs e)
         {
             string start = numberStart_textbox.Text;
             string end = numberEnd_textbox.Text;
             string stopOrDistance = numberStopDistance_textbox.Text;
-            string looptime = numberLooptime_texbox.Text;
             int countType = numberStopDistance_combobox.SelectedIndex;
 
             if(countType == -1)
@@ -85,13 +106,6 @@ namespace GraphTheory.src.wpf
                 return;
             }
 
-            if(!(Regex.IsMatch(stopOrDistance, @"^\d+$") && Regex.IsMatch(looptime, @"^\d+$")))
-            {
-                numberResult_textbox.Text = "Please type in a valid value!";
-                return;
-            }
-
-            int loop = int.Parse(looptime);
             int stops;
             int distance;
 
@@ -106,12 +120,12 @@ namespace GraphTheory.src.wpf
                 distance = int.Parse(stopOrDistance);
             }            
 
-            numberResult_textbox.Text = graphTheoryService.NumberOfRoutes(graph, start, end, countType, loop, stops, distance);
+            numberResult_textbox.Text = graphTheoryService.NumberOfRoutes(graph, start, end, countType, 3, stops, distance);
         }
         #endregion
 
         #region Shortes
-        void OnClickShortes(object sender, RoutedEventArgs e)
+        private void OnClickShortes(object sender, RoutedEventArgs e)
         {
             string start = shortesStart_textbox.Text;
             string end = shortesEnd_textbox.Text;
