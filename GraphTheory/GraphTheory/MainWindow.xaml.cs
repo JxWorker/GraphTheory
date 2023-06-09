@@ -37,7 +37,7 @@ namespace GraphTheory
         {
             selectContainer_grid.Children.Clear();
             windowContainer_grid.Children.Clear();
-            ComboBoxItem comboBoxItem = (ComboBoxItem)graph_combobox.SelectedItem;;
+            ComboBoxItem comboBoxItem = (ComboBoxItem)graph_combobox.SelectedItem;
 
             switch(comboBoxItem.Content.ToString())
             {
