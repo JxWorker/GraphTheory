@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="650">
     <Grid>
-        <GroupBox Header="TasksAndResults" HorizontalAlignment="Left" Width="650">
+        <GroupBox Header="Tasks and Results" HorizontalAlignment="Left" Width="650">
             <StackPanel x:Name="task_stackpanel">
                 <TextBlock x:Name="task_textBlock0" TextWrapping="Wrap" Text="TextBlock" Margin="5 15 0 10"/>
                 
