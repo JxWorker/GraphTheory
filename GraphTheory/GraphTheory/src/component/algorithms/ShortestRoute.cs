@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace GraphTheory.src.component.algorithms
 {
-    internal class ShortesRoute
+    internal class ShortestRoute
     {
         /// <summary>
-        /// Returns the shortest distance of all possibleRoutes between a start and end point.
+        /// Returns the shortestt distance of all possibleRoutes between a start and end point.
         /// </summary>
         /// <param name="possibleRoutes">A list of possible routes.</param>
-        /// <returns name="distance">Shortest distance of all possibleRoutes.</returns>
+        /// <returns name="distance">Shortestt distance of all possibleRoutes.</returns>
         public int ShortestDistance(List<List<Route>> possibleRoutes)
         {
             if (possibleRoutes.Count == 0)

@@ -139,25 +139,25 @@ namespace GraphTheory.src.wpf
         }
         #endregion
 
-        #region Shortes
-        private void OnClickShortes(object sender, RoutedEventArgs e)
+        #region Shortest
+        private void OnClickShortest(object sender, RoutedEventArgs e)
         {
-            string start = shortesStart_textbox.Text;
-            string end = shortesEnd_textbox.Text;
+            string start = shortestStart_textbox.Text;
+            string end = shortestEnd_textbox.Text;
             string result;
 
             if (graphTheoryService.ExistInGraph(graph, start) && graphTheoryService.ExistInGraph(graph, end))
             {
-                result = graphTheoryService.ShortesRoute(graph, start, end);
-                shortesResult_textbox.Background = Brushes.White;
+                result = graphTheoryService.ShortestRoute(graph, start, end);
+                shortestResult_textbox.Background = Brushes.White;
             }
             else
             {
                 result = "Please type in a valid point!";
-                shortesResult_textbox.Background = Brushes.Red;
+                shortestResult_textbox.Background = Brushes.Red;
             }
 
-            shortesResult_textbox.Text = result;
+            shortestResult_textbox.Text = result;
         }
         #endregion
     }

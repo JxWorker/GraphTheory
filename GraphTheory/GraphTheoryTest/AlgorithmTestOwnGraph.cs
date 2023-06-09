@@ -90,18 +90,18 @@ namespace GraphTheoryTest
         }
         #endregion
 
-        #region Test ShortesRoute
+        #region Test ShortestRoute
         [TestMethod]
-        public void ShortesRoute_A_F_Should_Return_9()
+        public void ShortestRoute_A_F_Should_Return_9()
         {
-            string actual = algorithm.ShortesRoute(graph, "A", "F");
+            string actual = algorithm.ShortestRoute(graph, "A", "F");
             Assert.AreEqual("9", actual);
         }
 
         [TestMethod]
-        public void ShortesRoute_H_A_Should_Return_NO_SUCH_ROUTE()
+        public void ShortestRoute_H_A_Should_Return_NO_SUCH_ROUTE()
         {
-            string actual = algorithm.ShortesRoute(graph, "H", "A");
+            string actual = algorithm.ShortestRoute(graph, "H", "A");
             Assert.AreEqual("NO SUCH ROUTE", actual);
         }
         #endregion
