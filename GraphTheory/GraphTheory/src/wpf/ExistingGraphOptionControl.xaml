@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="GraphTheory.src.wpf.ExistingGraphOptionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GraphTheory.src.wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="290">
+    <Grid>
+        <Button x:Name="calculate_button" Content="Get Calculate Window" HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="CalculateButtonClick"/>
+        <Button x:Name="tasks_button" Content="Tasks" HorizontalAlignment="Center" Margin="0,329,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="TasksButtonClick"/>
+    </Grid>
+</UserControl>

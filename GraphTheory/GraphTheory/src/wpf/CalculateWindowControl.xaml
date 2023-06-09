@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="GraphTheory.src.wpf.CalculateWindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GraphTheory.src.wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="650">
+    <Grid>
+        <GroupBox Header="Distance of a route" Margin="18,12,432,8" Width="200" HorizontalContentAlignment="Left">
+            <StackPanel>
+                <Label x:Name="distanceRoute_label" Content="Please enter a route:" Width="185"/>
+                <TextBox x:Name="distanceRoute_textbox" TextWrapping="Wrap" Text="A-B-C-..." Width="180"/>
+                <Rectangle Height="119" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
+                <Button x:Name="distanceCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickDistance" ClickMode="Press"/>
+                <Label x:Name="distanceResult_label" Content="Result:"/>
+                <TextBox x:Name="distanceResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Number of routes" Margin="223,12,222,8" Width="200" HorizontalContentAlignment="Center">
+            <StackPanel>
+                <Label x:Name="numberStart_label" Content="Start:"/>
+                <TextBox x:Name="numberStart_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
+                <Label x:Name="numberEnd_label" Content="End:"/>
+                <TextBox x:Name="numberEnd_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
+                <ComboBox x:Name="numberStopDistance_combobox" Width="180" Margin="0,5,0,5" SelectionChanged="NumberStopDistanceComboboxSelectionChanged">
+                    <ComboBoxItem Content="Number of possible routes"/>
+                    <ComboBoxItem Content="Routes with exactly X stops"/>
+                    <ComboBoxItem Content="Rroutes with equal or less stops"/>
+                    <ComboBoxItem Content="Routes with equal or more stops"/>
+                    <ComboBoxItem Content="Routes with an exact distance"/>
+                    <ComboBoxItem Content="Routes with smaller distance"/>
+                    <ComboBoxItem Content="Routes with higher distance"/>
+                </ComboBox>
+                <Label x:Name="numberStopDistance_label" Content=""/>
+                <TextBox x:Name="numberStopDistance_textbox" TextWrapping="Wrap" Width="180"/>
+                <Button x:Name="numberCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickNumber" ClickMode="Press"/>
+                <Label x:Name="numberResult_Label" Content="Result:"/>
+                <TextBox x:Name="numberResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Shortes route" Margin="433,12,17,8" Width="200" HorizontalContentAlignment="Right">
+            <StackPanel>
+                <Label x:Name="shortesStart_label" Content="Start:"/>
+                <TextBox x:Name="shortesStart_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
+                <Label x:Name="shortesEnd_label" Content="End:"/>
+                <TextBox x:Name="shortesEnd_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
+                <Rectangle Height="75" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
+                <Button x:Name="shortesCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickShortes" ClickMode="Press"/>
+                <Label x:Name="shortesResult_label" Content="Result:"/>
+                <TextBox x:Name="shortesResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>
