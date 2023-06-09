@@ -28,12 +28,12 @@ namespace GraphTheory.src.wpf
             InitializeComponent();
         }
 
-        private void calculate_button_Click(object sender, RoutedEventArgs e)
+        private void CalculateButtonClick(object sender, RoutedEventArgs e)
         {
             CalculateButtonClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void tasks_button_Click(object sender, RoutedEventArgs e)
+        private void TasksButtonClick(object sender, RoutedEventArgs e)
         {
             TasksButtonClicked?.Invoke(this, EventArgs.Empty);
         }
