@@ -9,16 +9,18 @@
     <Grid>
         <GroupBox Header="TasksAndResults" HorizontalAlignment="Left" Width="650">
             <StackPanel x:Name="task_stackpanel">
-                <TextBlock x:Name="task_textBlock1" TextWrapping="Wrap" Text="TextBlock" Margin="0 15 0 0"/>
-                <TextBlock x:Name="task_textBlock2" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
-                <TextBlock x:Name="task_textBlock3" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
-                <TextBlock x:Name="task_textBlock4" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
-                <TextBlock x:Name="task_textBlock5" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
-                <TextBlock x:Name="task_textBlock6" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
-                <TextBlock x:Name="task_textBlock7" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
-                <TextBlock x:Name="task_textBlock8" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
-                <TextBlock x:Name="task_textBlock9" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
-                <TextBlock x:Name="task_textBlock10" TextWrapping="Wrap" Text="TextBlock" Margin="0 10 0 0"/>
+                <TextBlock x:Name="task_textBlock0" TextWrapping="Wrap" Text="TextBlock" Margin="5 15 0 10"/>
+                
+                <TextBlock x:Name="task_textBlock1" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock2" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock3" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock4" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock5" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock6" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock7" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock8" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock9" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
+                <TextBlock x:Name="task_textBlock10" TextWrapping="Wrap" Text="TextBlock" Margin="5 10 0 0"/>
             </StackPanel>
         </GroupBox>
     </Grid>

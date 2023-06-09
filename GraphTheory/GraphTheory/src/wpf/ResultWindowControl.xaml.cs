@@ -38,10 +38,24 @@ namespace GraphTheory.src.wpf
 
         private void SetLabel(string[] text, UIElementCollection uIElementCollection)
         {
+            string graphList = "Graph: ";
+            foreach (Route route in graph)
+            {
+                graphList = graphList + route.ToString() + ", ";
+            }
+            graphList = graphList.Substring(0, graphList.Length-2);
+
             int i = 0;
             foreach (TextBlock element in uIElementCollection)
             {
-                element.Text = text[i++];
+                if (element.Name == "task_textBlock0")
+                {
+                    element.Text = graphList;
+                }
+                else
+                {
+                    element.Text = text[i++];
+                }
             }
         }
 
