@@ -11,7 +11,7 @@
             <StackPanel>
                 <Label x:Name="distanceRoute_label" Content="Please enter a route:" Width="185"/>
                 <TextBox x:Name="distanceRoute_textbox" TextWrapping="Wrap" Text="A-B-C-..." Width="180"/>
-                <Rectangle Height="119" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
+                <Rectangle Height="183" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
                 <Button x:Name="distanceCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickDistance" ClickMode="Press"/>
                 <Label x:Name="distanceResult_label" Content="Result:"/>
                 <TextBox x:Name="distanceResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
@@ -34,21 +34,23 @@
                 </ComboBox>
                 <Label x:Name="numberStopDistance_label" Content=""/>
                 <TextBox x:Name="numberStopDistance_textbox" TextWrapping="Wrap" Width="180"/>
+                <TextBlock x:Name="numberLoopTime_textblock" TextWrapping="Wrap" Text="How many times a route can be used:" Margin="5 10 0 5"/>
+                <TextBox x:Name="numberLoopTime_textbox" TextWrapping="Wrap" Text="1" Width="180"/>
                 <Button x:Name="numberCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickNumber" ClickMode="Press"/>
                 <Label x:Name="numberResult_Label" Content="Result:"/>
                 <TextBox x:Name="numberResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Shortes route" Margin="433,12,17,8" Width="200" HorizontalContentAlignment="Right">
+        <GroupBox Header="Shortest route" Margin="433,12,17,8" Width="200" HorizontalContentAlignment="Right">
             <StackPanel>
-                <Label x:Name="shortesStart_label" Content="Start:"/>
-                <TextBox x:Name="shortesStart_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
-                <Label x:Name="shortesEnd_label" Content="End:"/>
-                <TextBox x:Name="shortesEnd_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
-                <Rectangle Height="75" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
-                <Button x:Name="shortesCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickShortes" ClickMode="Press"/>
-                <Label x:Name="shortesResult_label" Content="Result:"/>
-                <TextBox x:Name="shortesResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
+                <Label x:Name="shortestStart_label" Content="Start:"/>
+                <TextBox x:Name="shortestStart_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
+                <Label x:Name="shortestEnd_label" Content="End:"/>
+                <TextBox x:Name="shortestEnd_textbox" TextWrapping="Wrap" Width="180" MaxLength="1"/>
+                <Rectangle Height="139" Stroke="Transparent" Width="100" Margin="0,1,0,0"/>
+                <Button x:Name="shortestCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickShortest" ClickMode="Press"/>
+                <Label x:Name="shortestResult_label" Content="Result:"/>
+                <TextBox x:Name="shortestResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
             </StackPanel>
         </GroupBox>
     </Grid>

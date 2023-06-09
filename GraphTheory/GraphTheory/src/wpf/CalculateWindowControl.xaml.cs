@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace GraphTheory.src.wpf
 {
@@ -43,10 +44,12 @@ namespace GraphTheory.src.wpf
                 }
 
                 result = graphTheoryService.DistanceOfRoutes(graph, route);
+                distanceResult_textbox.Background = Brushes.White;
             }
             else
             {
                 result = "Please type in a valid route! eg. A-B-C-D";
+                distanceResult_textbox.Background = Brushes.Red;
             }
 
             distanceResult_textbox.Text = result;
@@ -67,7 +70,6 @@ namespace GraphTheory.src.wpf
                     break;
                 case "Routes with exactly X stops":
                     numberStopDistance_label.Content = "Number of Stops:";
-                    
                     break;
                 case "Rroutes with equal or less stops":
                     numberStopDistance_label.Content = "Number of Stops:";
@@ -92,19 +94,31 @@ namespace GraphTheory.src.wpf
             string start = numberStart_textbox.Text;
             string end = numberEnd_textbox.Text;
             string stopOrDistance = numberStopDistance_textbox.Text;
+            string looptime = numberLoopTime_textbox.Text;
             int countType = numberStopDistance_combobox.SelectedIndex;
 
             if(countType == -1)
             {
                 numberResult_textbox.Text = "Please select a way to count the routes!";
+                numberResult_textbox.Background = Brushes.Red;
                 return;
             }
 
             if(!(graphTheoryService.ExistInGraph(graph, start) && graphTheoryService.ExistInGraph(graph, end)))
             {
                 numberResult_textbox.Text = "Please type in a valid point!";
+                numberResult_textbox.Background = Brushes.Red;
                 return;
             }
+
+            if (!(Regex.IsMatch(stopOrDistance, @"^\d+$") && Regex.IsMatch(looptime, @"^\d+$")))
+            {
+                numberResult_textbox.Text = "Please type in a valid value!";
+                numberResult_textbox.Background = Brushes.Red;
+                return;
+            }
+
+            int loop = int.Parse(looptime);
 
             int stops;
             int distance;
@@ -120,27 +134,30 @@ namespace GraphTheory.src.wpf
                 distance = int.Parse(stopOrDistance);
             }            
 
-            numberResult_textbox.Text = graphTheoryService.NumberOfRoutes(graph, start, end, countType, 3, stops, distance);
+            numberResult_textbox.Text = graphTheoryService.NumberOfRoutes(graph, start, end, countType, loop, stops, distance);
+            numberResult_textbox.Background = Brushes.White;
         }
         #endregion
 
-        #region Shortes
-        private void OnClickShortes(object sender, RoutedEventArgs e)
+        #region Shortest
+        private void OnClickShortest(object sender, RoutedEventArgs e)
         {
-            string start = shortesStart_textbox.Text;
-            string end = shortesEnd_textbox.Text;
+            string start = shortestStart_textbox.Text;
+            string end = shortestEnd_textbox.Text;
             string result;
 
             if (graphTheoryService.ExistInGraph(graph, start) && graphTheoryService.ExistInGraph(graph, end))
             {
-                result = graphTheoryService.ShortesRoute(graph, start, end);
+                result = graphTheoryService.ShortestRoute(graph, start, end);
+                shortestResult_textbox.Background = Brushes.White;
             }
             else
             {
                 result = "Please type in a valid point!";
+                shortestResult_textbox.Background = Brushes.Red;
             }
 
-            shortesResult_textbox.Text = result;
+            shortestResult_textbox.Text = result;
         }
         #endregion
     }

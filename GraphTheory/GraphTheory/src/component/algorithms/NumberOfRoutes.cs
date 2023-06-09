@@ -9,7 +9,7 @@ namespace GraphTheory.src.component.algorithms
 {
     internal class NumberOfRoutes
     {
-        private ShortesRoute shortesRoute = new ShortesRoute();
+        private ShortestRoute shortestRoute = new ShortestRoute();
 
         /// <summary>
         /// Returns the number of possible routes between a start and end point.
@@ -92,7 +92,7 @@ namespace GraphTheory.src.component.algorithms
             int count = 0;
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if(distanceLimit == shortesRoute.CalculateDistance(route))
+                if(distanceLimit == shortestRoute.CalculateDistance(route))
                 {
                     count++;
                 }
@@ -111,7 +111,7 @@ namespace GraphTheory.src.component.algorithms
             int count = 0;
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (distanceLimit > shortesRoute.CalculateDistance(route))
+                if (distanceLimit > shortestRoute.CalculateDistance(route))
                 {
                     count++;
                 }
@@ -130,7 +130,7 @@ namespace GraphTheory.src.component.algorithms
             int count = 0;
             foreach (List<Route> route in listOfPosssibleRoutes)
             {
-                if (distanceLimit < shortesRoute.CalculateDistance(route))
+                if (distanceLimit < shortestRoute.CalculateDistance(route))
                 {
                     count++;
                 }

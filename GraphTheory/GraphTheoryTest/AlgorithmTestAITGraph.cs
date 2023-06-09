@@ -50,7 +50,7 @@ namespace GraphTheoryTest
         [TestMethod]
         public void NumberOfRoutes_CountType2_A_C_Should_Return_3()
         {
-            string actual = algorithm.NumberOfRoutes(graph, "A", "C", 2, 3, 4, 0);
+            string actual = algorithm.NumberOfRoutes(graph, "A", "C", 2, 5, 4, 0);
             Assert.AreEqual("3", actual);
         }
 
@@ -90,18 +90,18 @@ namespace GraphTheoryTest
         }
         #endregion
 
-        #region Test ShortesRoute
+        #region Test ShortestRoute
         [TestMethod]
-        public void ShortesRoute_A_C_Should_Return_9()
+        public void ShortestRoute_A_C_Should_Return_9()
         {
-            string actual = algorithm.ShortesRoute(graph, "A", "C");
+            string actual = algorithm.ShortestRoute(graph, "A", "C");
             Assert.AreEqual("9", actual);
         }
 
         [TestMethod]
-        public void ShortesRoute_E_A_Should_Return_NO_SUCH_ROUTE()
+        public void ShortestRoute_E_A_Should_Return_NO_SUCH_ROUTE()
         {
-            string actual = algorithm.ShortesRoute(graph, "E", "A");
+            string actual = algorithm.ShortestRoute(graph, "E", "A");
             Assert.AreEqual("NO SUCH ROUTE", actual);
         }
         #endregion

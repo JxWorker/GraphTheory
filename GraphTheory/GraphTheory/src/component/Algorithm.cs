@@ -13,7 +13,7 @@ namespace GraphTheory.src.component
         SearchForRoutes searchForRoutes = new SearchForRoutes();
         DistanceOfRoutes distanceOfRoutes = new DistanceOfRoutes();
         NumberOfRoutes numberOfRoutes = new NumberOfRoutes();
-        ShortesRoute shortesRoute = new ShortesRoute();
+        ShortestRoute shortestRoute = new ShortestRoute();
 
         public string DistanceOfRoutes(Route[] graph, string[] route)
         {
@@ -72,9 +72,9 @@ namespace GraphTheory.src.component
             }
         }
 
-        public string ShortesRoute(Route[] graph, string start, string end)
+        public string ShortestRoute(Route[] graph, string start, string end)
         {
-            int distance = shortesRoute.ShortestDistance(searchForRoutes.SearchForRoute(graph, start, end, 1));
+            int distance = shortestRoute.ShortestDistance(searchForRoutes.SearchForRoute(graph, start, end, 1));
 
             if (distance == -1)
             {
