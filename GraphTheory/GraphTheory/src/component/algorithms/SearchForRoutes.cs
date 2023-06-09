@@ -53,39 +53,56 @@ namespace GraphTheory.src.component.algorithms
         /// <param name="count">The number of routes which start from the start point.</param>
         private void SearchForAllRoutes(string start, int count)
         {
-            try
-            {
-                Route[] routes = GetAllRoutes(count, start);
-                if (listOfPosssibleRoutes.Count == 0)
-                {
-                    for (int i = 0; i < count; i++)
-                    {
-                        possibleRoute.Add(routes[i]);
-                        listOfPosssibleRoutes.Add(new List<Route>(possibleRoute));
-                        possibleRoute = new List<Route>();
-                    }
-                    SearchForAllRoutes(listOfPosssibleRoutes.First().Last().End, NumberOfPossibleRoutes(listOfPosssibleRoutes.First().Last().End));
-                }
-                else
-                {
-                    possibleRoute = new List<Route>(listOfPosssibleRoutes.First());
-                    for(int i = 0; i < count; i++)
-                    {
-                        AddRoute(routes[i]);
-                        possibleRoute = new List<Route>(listOfPosssibleRoutes.First());
-                    }
-                    result.Add(new List<Route>(listOfPosssibleRoutes.First()));
-                    listOfPosssibleRoutes.Remove(listOfPosssibleRoutes.First());
+            Stack<Tuple<string, int>> stack = new Stack<Tuple<string, int>>();
+            stack.Push(new Tuple<string, int>(start, count));
 
-                    if(listOfPosssibleRoutes.Count > 0)
+            while (stack.Count > 0)
+            {
+                Tuple<string, int> current = stack.Pop();
+                string currentStart = current.Item1;
+                int currentCount = current.Item2;
+
+                try
+                {
+                    Route[] routes = GetAllRoutes(currentCount, currentStart);
+
+                    if (listOfPosssibleRoutes.Count == 0)
                     {
-                        SearchForAllRoutes(listOfPosssibleRoutes.First().Last().End, NumberOfPossibleRoutes(listOfPosssibleRoutes.First().Last().End));
+                        for (int i = 0; i < currentCount; i++)
+                        {
+                            possibleRoute.Add(routes[i]);
+                            listOfPosssibleRoutes.Add(new List<Route>(possibleRoute));
+                            possibleRoute = new List<Route>();
+                        }
+
+                        stack.Push(new Tuple<string, int>(listOfPosssibleRoutes.First().Last().End, NumberOfPossibleRoutes(listOfPosssibleRoutes.First().Last().End)));
+                    }
+                    else
+                    {
+                        possibleRoute = new List<Route>(listOfPosssibleRoutes.First());
+                        for (int i = 0; i < currentCount; i++)
+                        {
+                            AddRoute(routes[i]);
+                            possibleRoute = new List<Route>(listOfPosssibleRoutes.First());
+                        }
+                        result.Add(new List<Route>(listOfPosssibleRoutes.First()));
+                        listOfPosssibleRoutes.Remove(listOfPosssibleRoutes.First());
+
+                        if (result.Count >= 50)
+                        {
+                            result = RemoveRoute();
+                        }
+
+                        if (listOfPosssibleRoutes.Count > 0)
+                        {
+                            stack.Push(new Tuple<string, int>(listOfPosssibleRoutes.First().Last().End, NumberOfPossibleRoutes(listOfPosssibleRoutes.First().Last().End)));
+                        }
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
 

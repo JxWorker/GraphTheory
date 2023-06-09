@@ -92,6 +92,7 @@ namespace GraphTheory.src.wpf
             string start = numberStart_textbox.Text;
             string end = numberEnd_textbox.Text;
             string stopOrDistance = numberStopDistance_textbox.Text;
+            string looptime = numberLoopTime_textbox.Text;
             int countType = numberStopDistance_combobox.SelectedIndex;
 
             if(countType == -1)
@@ -105,6 +106,14 @@ namespace GraphTheory.src.wpf
                 numberResult_textbox.Text = "Please type in a valid point!";
                 return;
             }
+
+            if (!(Regex.IsMatch(stopOrDistance, @"^\d+$") && Regex.IsMatch(looptime, @"^\d+$")))
+            {
+                numberResult_textbox.Text = "Please type in a valid value!";
+                return;
+            }
+
+            int loop = int.Parse(looptime);
 
             int stops;
             int distance;
@@ -120,7 +129,7 @@ namespace GraphTheory.src.wpf
                 distance = int.Parse(stopOrDistance);
             }            
 
-            numberResult_textbox.Text = graphTheoryService.NumberOfRoutes(graph, start, end, countType, 3, stops, distance);
+            numberResult_textbox.Text = graphTheoryService.NumberOfRoutes(graph, start, end, countType, loop, stops, distance);
         }
         #endregion
 

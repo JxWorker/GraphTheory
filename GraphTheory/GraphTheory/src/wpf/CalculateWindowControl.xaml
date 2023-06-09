@@ -34,6 +34,8 @@
                 </ComboBox>
                 <Label x:Name="numberStopDistance_label" Content=""/>
                 <TextBox x:Name="numberStopDistance_textbox" TextWrapping="Wrap" Width="180"/>
+                <TextBlock x:Name="numberLoopTime_textblock" TextWrapping="Wrap" Text="How many times a route can be used:" Margin="5 10 0 5"/>
+                <TextBox x:Name="numberLoopTime_textbox" TextWrapping="Wrap" Text="1" Width="180"/>
                 <Button x:Name="numberCalculate_button" Content="Calculate" Margin="0,25,0,5" Click="OnClickNumber" ClickMode="Press"/>
                 <Label x:Name="numberResult_Label" Content="Result:"/>
                 <TextBox x:Name="numberResult_textbox" TextWrapping="Wrap" Width="180" IsReadOnly="True"/>
