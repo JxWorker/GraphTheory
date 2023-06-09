@@ -10,12 +10,24 @@
     <Compile Update="src\wpf\CalculateWindowControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="src\wpf\CreateGraphControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="src\wpf\ExistingGraphOptionControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="src\wpf\ResultWindowControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="src\wpf\CalculateWindowControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="src\wpf\CreateGraphControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="src\wpf\ExistingGraphOptionControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="src\wpf\ResultWindowControl.xaml">
