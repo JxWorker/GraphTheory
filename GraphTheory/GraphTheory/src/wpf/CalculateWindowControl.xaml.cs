@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace GraphTheory.src.wpf
 {
@@ -43,10 +44,12 @@ namespace GraphTheory.src.wpf
                 }
 
                 result = graphTheoryService.DistanceOfRoutes(graph, route);
+                distanceResult_textbox.Background = Brushes.White;
             }
             else
             {
                 result = "Please type in a valid route! eg. A-B-C-D";
+                distanceResult_textbox.Background = Brushes.Red;
             }
 
             distanceResult_textbox.Text = result;
@@ -67,7 +70,6 @@ namespace GraphTheory.src.wpf
                     break;
                 case "Routes with exactly X stops":
                     numberStopDistance_label.Content = "Number of Stops:";
-                    
                     break;
                 case "Rroutes with equal or less stops":
                     numberStopDistance_label.Content = "Number of Stops:";
@@ -98,18 +100,21 @@ namespace GraphTheory.src.wpf
             if(countType == -1)
             {
                 numberResult_textbox.Text = "Please select a way to count the routes!";
+                numberResult_textbox.Background = Brushes.Red;
                 return;
             }
 
             if(!(graphTheoryService.ExistInGraph(graph, start) && graphTheoryService.ExistInGraph(graph, end)))
             {
                 numberResult_textbox.Text = "Please type in a valid point!";
+                numberResult_textbox.Background = Brushes.Red;
                 return;
             }
 
             if (!(Regex.IsMatch(stopOrDistance, @"^\d+$") && Regex.IsMatch(looptime, @"^\d+$")))
             {
                 numberResult_textbox.Text = "Please type in a valid value!";
+                numberResult_textbox.Background = Brushes.Red;
                 return;
             }
 
@@ -130,6 +135,7 @@ namespace GraphTheory.src.wpf
             }            
 
             numberResult_textbox.Text = graphTheoryService.NumberOfRoutes(graph, start, end, countType, loop, stops, distance);
+            numberResult_textbox.Background = Brushes.White;
         }
         #endregion
 
@@ -143,10 +149,12 @@ namespace GraphTheory.src.wpf
             if (graphTheoryService.ExistInGraph(graph, start) && graphTheoryService.ExistInGraph(graph, end))
             {
                 result = graphTheoryService.ShortesRoute(graph, start, end);
+                shortesResult_textbox.Background = Brushes.White;
             }
             else
             {
                 result = "Please type in a valid point!";
+                shortesResult_textbox.Background = Brushes.Red;
             }
 
             shortesResult_textbox.Text = result;
