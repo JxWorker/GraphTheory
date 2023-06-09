@@ -41,5 +41,10 @@ namespace GraphTheory.src.api
                 return false;
             }
         }
+
+        public override string ToString()
+        {
+            return Start + End + Distance;
+        }
     }
 }
