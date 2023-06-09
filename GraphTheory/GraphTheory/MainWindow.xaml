@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="950">
+        Title="MainWindow" Height="600" Width="960">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,7 +18,7 @@
             <Grid x:Name="selectContainer_grid" Height="522" Width="290">
             </Grid>
         </StackPanel>
-        <Grid x:Name="windowContainer_grid" HorizontalAlignment="Right" Width="650" Margin="205,10,10,0"/>
+        <Grid x:Name="windowContainer_grid" HorizontalAlignment="Right" Width="660" Margin="0,10,0,0"/>
 
 
     </Grid>
